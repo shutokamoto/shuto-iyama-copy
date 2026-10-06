@@ -866,8 +866,11 @@ Google Slidesには日本語の本来の縦書き指定がないため、1文字
 - 重要度が高い場合は、自分管理のfork / mirror、またはrepo内の完全source snapshotを保持する
 - 復元可能なGit bundleや、必要なら実運用中の固定binaryも退避する
 - プロジェクト側は「upstream最新版」ではなく、**自分が保持する固定版**を正本として参照する
-- upstreamの新versionへ自動追従しない
-- 更新はmigrationとして扱い、既存成果物の回帰QAが通った場合だけpinを変更する
+- upstreamの新versionへ無条件追従しない
+- 重要な制作基盤は定期的に新しい正式リリースを監視する
+- 新versionが引き続き無料で利用でき、license上も自前運用可能で、既存成果物の回帰QAがすべてPASSした場合は、固定版を新versionへ更新する
+- 課金化・license変更・互換性問題・QA失敗がある場合は自動更新せず、現行pinを維持する
+- 更新はmigrationとして扱い、source snapshot・Git bundle・binary backup・hash・README等の固定資産も新versionへ揃えて更新する
 - upstreamが削除・非公開・有料化されても、現在採用中の版で制作を継続できる状態を完成条件にする
 - forkや再配布時は元license・NOTICEを維持し、商標・ブランド素材の扱いはlicenseと分けて確認する
 
